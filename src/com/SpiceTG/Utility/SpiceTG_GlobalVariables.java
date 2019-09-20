@@ -22,9 +22,9 @@ public class SpiceTG_GlobalVariables {
 	public static Select sel;
 	public static String LoginURL = "https://spicetg.azurewebsites.net/";
 	public static EventFiringWebDriver oDriver = null;
+	//public static String testDataExcelFileName  = "testdata.xlsx";
 	public static String wait = null;
-	public static String username = "maheshw@leotechnosoft.net";
-	public static String password = "leo_123";
+	
 	
 	
 	
@@ -33,6 +33,10 @@ public class SpiceTG_GlobalVariables {
 	public static void beforeClass() throws Exception {
 		initialize();
 		timeout();
+		
+		//Set Test Data Excel and Sheet
+		//System.out.println("******Setup Test Level Data***********");
+		//ExcelUtil.setExcelFileSheet("LoginData");
 	}
 	@AfterMethod
 	public static void afterClass() throws Exception {
@@ -49,7 +53,7 @@ public class SpiceTG_GlobalVariables {
 	public static void initialize() throws Exception{
 		if(oDriver==null){
 			
-		System.setProperty("webdriver.ie.driver", "D:/Automation/IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "D:/Automation/Automation_Project/SpiceTG-Automation/Jar Files/IEDriverServer.exe");
 		dr = new InternetExplorerDriver();
 		
 		dr.get(LoginURL);
