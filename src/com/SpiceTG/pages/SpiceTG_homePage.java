@@ -22,11 +22,8 @@ public class SpiceTG_homePage {
 	@FindBy(id="forgot-email")
 	public WebElement ForgotEmailtextbox;
 	
-	@FindBy(xpath="//button[@class='btn btn-primary' and text()='Submit']")
-	public WebElement SubmitButtonTextMessage;
-	
-	@FindBy(xpath="//button[@class='btn btn-link' and text()='Cancel']")
-	public WebElement CancelButton;
+	@FindBy(xpath="//div[@class='modal-header']//h5[@class='modal-title']")
+	public WebElement ForgotPwdText;
 	
 	
 	@FindBy(xpath="//div[@class='modal-header']//h5[@class='modal-title text-primary'and text()='Success!']")
@@ -35,9 +32,16 @@ public class SpiceTG_homePage {
 	@FindBy(xpath="//div[@class='pt-2 pb-2']")
 	public WebElement SucessMessageDetailsMessage;
 	
+	@FindBy(xpath="//button[@class='btn btn-primary'and text()='Submit']")
+	public WebElement ForgotPasswordSubmiteButton;
+	
 	
 	@FindBy(xpath="//button[@class='btn btn-primary'and text()='Done']")
 	public WebElement ForgotPasswordDoneButton;
+	
+	@FindBy(xpath="//button[@class='btn btn-link' and text()='Cancel']")
+	public WebElement CancelButton;
+	
 
 
 }

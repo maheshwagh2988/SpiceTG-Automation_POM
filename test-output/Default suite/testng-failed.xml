@@ -6,7 +6,7 @@
       <class name="com.SpiceTG.TestCases.HomePagesTestCase">
         <methods>
           <include name="beforeClass"/>
-          <include name="Test2"/>
+          <include name="Test4"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- com.SpiceTG.TestCases.HomePagesTestCase -->

@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -20,6 +22,7 @@ public class SpiceTG_GlobalVariables {
 	public static Select sel;
 	public static String LoginURL = "https://spicetg.azurewebsites.net/";
 	public static EventFiringWebDriver oDriver = null;
+	public static String wait = null;
 	public static String username = "maheshw@leotechnosoft.net";
 	public static String password = "leo_123";
 	
@@ -29,6 +32,7 @@ public class SpiceTG_GlobalVariables {
 	@BeforeMethod
 	public static void beforeClass() throws Exception {
 		initialize();
+		timeout();
 	}
 	@AfterMethod
 	public static void afterClass() throws Exception {
@@ -49,8 +53,9 @@ public class SpiceTG_GlobalVariables {
 		dr = new InternetExplorerDriver();
 		
 		dr.get(LoginURL);
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		dr.manage().window().maximize();
- 		dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
  		
 
 		if (dr != null) {
@@ -59,6 +64,8 @@ public class SpiceTG_GlobalVariables {
 					
 		  }
 		}
+		
+		
 	}
 	
 	protected static void quit() throws Exception {
@@ -72,6 +79,11 @@ public class SpiceTG_GlobalVariables {
 		}
 		
 		//LoginURL = null;
+	}
+	
+	public static void timeout() throws Exception {
+		WebDriverWait wait = new WebDriverWait(dr,30);
+		
 	}
 
 }
