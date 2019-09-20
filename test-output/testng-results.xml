@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="11704" started-at="2019-09-19T15:16:04Z" finished-at="2019-09-19T15:16:15Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="11704" started-at="2019-09-19T15:16:04Z" finished-at="2019-09-19T15:16:15Z">
+      <class name="com.SpiceTG.TestCases.HomePagesTestCase">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="beforeClass" is-config="true" duration-ms="3144" started-at="2019-09-19T20:46:04Z" finished-at="2019-09-19T20:46:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="Test1()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="Test1" duration-ms="44" started-at="2019-09-19T20:46:07Z" finished-at="2019-09-19T20:46:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="afterClass" is-config="true" duration-ms="808" started-at="2019-09-19T20:46:07Z" finished-at="2019-09-19T20:46:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="beforeClass" is-config="true" duration-ms="2575" started-at="2019-09-19T20:46:08Z" finished-at="2019-09-19T20:46:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="Test2()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="Test2" duration-ms="209" started-at="2019-09-19T20:46:10Z" finished-at="2019-09-19T20:46:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test2 -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="afterClass" is-config="true" duration-ms="682" started-at="2019-09-19T20:46:10Z" finished-at="2019-09-19T20:46:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="beforeClass" is-config="true" duration-ms="2578" started-at="2019-09-19T20:46:11Z" finished-at="2019-09-19T20:46:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="Test3()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="Test3" duration-ms="940" started-at="2019-09-19T20:46:14Z" finished-at="2019-09-19T20:46:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test3 -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.HomePagesTestCase@458ad742]" name="afterClass" is-config="true" duration-ms="707" started-at="2019-09-19T20:46:15Z" finished-at="2019-09-19T20:46:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.SpiceTG.TestCases.HomePagesTestCase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
