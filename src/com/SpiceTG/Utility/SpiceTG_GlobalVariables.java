@@ -23,12 +23,8 @@ public class SpiceTG_GlobalVariables {
 	public static String LoginURL = "https://spicetg.azurewebsites.net/";
 	public static EventFiringWebDriver oDriver = null;
 	//public static String testDataExcelFileName  = "testdata.xlsx";
-	public static String wait = null;
-	
-	
-	
-	
-	
+//	public static String wait = null;
+		
 	@BeforeMethod
 	public static void beforeClass() throws Exception {
 		initialize();
@@ -86,7 +82,7 @@ public class SpiceTG_GlobalVariables {
 	}
 	
 	public static void timeout() throws Exception {
-		WebDriverWait wait = new WebDriverWait(dr,30);
+		WebDriverWait wait = new WebDriverWait(dr,50);
 		
 	}
 

@@ -43,11 +43,21 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		Shp.Enter_Email_id.sendKeys("prasadn@leotechnosoft.net");
-		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		Shp.Enter_Password.sendKeys("leo_12345");
-		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		Shp.ClickOn_Login.click();
+		
+		try {
+			timeout();
+			Shp.Enter_Email_id.sendKeys("prasadn@leotechnosoft.net");
+			//dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			//Here we can call timeout method from SpiceTG_GlobalVariables class it has to wait 50 second 
+			timeout();
+			Shp.Enter_Password.sendKeys("leo_12345");
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			Shp.ClickOn_Login.click();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} 
+		
 						
 	}
 	@Test
@@ -55,6 +65,7 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
 		Shp.ForgotPassword.click();
+			
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		try {
 			Thread.sleep(2000);
@@ -80,9 +91,7 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-						
+							
 	}
 	@Test
 	public void Test5() {
