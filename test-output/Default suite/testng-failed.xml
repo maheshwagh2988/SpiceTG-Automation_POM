@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.SpiceTG.TestCases.HomePagesTestCase">
+      <class name="com.SpiceTG.TestCases.Updated_HomePagesTestCase">
         <methods>
-          <include name="beforeClass"/>
-          <include name="Test4"/>
-          <include name="afterClass"/>
+          <include name="Test5"/>
         </methods>
-      </class> <!-- com.SpiceTG.TestCases.HomePagesTestCase -->
+      </class> <!-- com.SpiceTG.TestCases.Updated_HomePagesTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

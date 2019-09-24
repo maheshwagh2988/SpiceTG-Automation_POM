@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\leomahesh\AppData\Local\Temp\testng-eclipse-615884456\testng-customsuite.xml</span>
+                    <span>C:\Users\leomahesh\AppData\Local\Temp\testng-eclipse--783433722\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,7 +101,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.SpiceTG.TestCases.HomePagesTestCase" hash-for-method="Test1">Test1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.SpiceTG.TestCases.HomePagesTestCase" hash-for-method="Test2">Test2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.SpiceTG.TestCases.HomePagesTestCase" hash-for-method="Test3">Test3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.SpiceTG.TestCases.HomePagesTestCase" hash-for-method="Test4(prasadn@leotechnosoft.net, leo_12345)">Test4(prasadn@leotechnosoft.net, leo_12345)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -124,9 +139,31 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="Test1">
+                  </a> <!-- Test1 -->
+                  <span class="method-name">Test1</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test2">
+                  </a> <!-- Test2 -->
+                  <span class="method-name">Test2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="Test3">
                   </a> <!-- Test3 -->
                   <span class="method-name">Test3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Test4(prasadn@leotechnosoft.net, leo_12345)">
+                  </a> <!-- Test4(prasadn@leotechnosoft.net, leo_12345) -->
+                  <span class="method-name">Test4</span>
+                  <span class="parameters">(prasadn@leotechnosoft.net, leo_12345)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -134,7 +171,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\leomahesh\AppData\Local\Temp\testng-eclipse-615884456\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\leomahesh\AppData\Local\Temp\testng-eclipse--783433722\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -143,11 +180,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.SpiceTG.TestCases.HomePagesTestCase&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;Test3&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.SpiceTG.TestCases.HomePagesTestCase --&gt;
+      &lt;class name=&quot;com.SpiceTG.TestCases.HomePagesTestCase&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -187,16 +220,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Test3')
+data.setCell(0, 1, 'Test4')
 data.setCell(0, 2, 'com.SpiceTG.TestCases.HomePagesTestCase')
-data.setCell(0, 3, 2483);
+data.setCell(0, 3, 4084);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Test3')
+data.setCell(1, 2, 'com.SpiceTG.TestCases.HomePagesTestCase')
+data.setCell(1, 3, 3617);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Test2')
+data.setCell(2, 2, 'com.SpiceTG.TestCases.HomePagesTestCase')
+data.setCell(2, 3, 253);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Test1')
+data.setCell(3, 2, 'com.SpiceTG.TestCases.HomePagesTestCase')
+data.setCell(3, 3, 63);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -211,22 +256,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">4 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.SpiceTG.TestCases.HomePagesTestCase</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">Test1</span>
-                <br/>
-                <span class="ignored-method-name">Test2</span>
-                <br/>
-                <span class="ignored-method-name">Test4</span>
-                <br/>
-                <span class="ignored-method-name">Test5</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -241,12 +273,48 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Test3</span>
-                <span class="method-start">16728 ms</span>
+                <span class="method-name">Test1</span>
+                <span class="method-start">8289 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">19214 ms</span>
+                <span class="method-start">8354 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">10031 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Test2</span>
+                <span class="method-start">12372 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">12627 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">13312 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Test3</span>
+                <span class="method-start">15878 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">19497 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">20133 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Test4(prasadn@leotechnosoft.net, leo_12345)</span>
+                <span class="method-start">22750 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">26836 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

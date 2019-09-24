@@ -1,5 +1,6 @@
 package com.SpiceTG.Utility;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class SpiceTG_GlobalVariables {
 	public static EventFiringWebDriver oDriver = null;
 	//public static String testDataExcelFileName  = "testdata.xlsx";
 //	public static String wait = null;
+	public static String Filepahts  = "D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\Testdata_1.xlsx";
 		
 	@BeforeMethod
 	public static void beforeClass() throws Exception {

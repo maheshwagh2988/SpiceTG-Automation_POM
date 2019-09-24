@@ -10,11 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.SpiceTG.Utility.ExcelWriteUtility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.pages.SpiceTG_homePage;
 
 
-public class HomePagesTestCase extends SpiceTG_GlobalVariables {
+public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
 	@Test
 	public void Test1() {
@@ -61,6 +62,7 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 						
 	}
+	/*
 	@Test(dataProvider="SpiceTGuserpwd")
 	public void Test4(String uname, String pwd) {
 		
@@ -93,13 +95,72 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 			e.printStackTrace();
 		}
 							
-	}
+	} */
 	
+
+	@Test(dataProvider="SpiceTGuserpwd")
+	public void Test5(String uname, String pwd)  {
+		ExcelWriteUtility ex=new ExcelWriteUtility();
+		try {
+			ex.Openfile();
+			ex.getdata(0, 0, 2);
+			ex.getRowcount(0);
+			
+		} 
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+		
+		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		Shp.ForgotPassword.click();
+			
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(2000);
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			Shp.ForgotEmailtextbox.sendKeys(uname);
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			
+			String Forgottxt=Shp.ForgotPwdText.getText();
+			System.out.println("Forgot txt is  :"+Forgottxt);
+			
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			Shp.ForgotPasswordSubmiteButton.click();
+			
+			String Sucesstxt=Shp.SucessMessage.getText();
+			System.out.println("On Sucess page text is:"+Sucesstxt);
+										
+			
+			String SucessDetailstxt=Shp.SucessMessageDetailsMessage.getText();
+			System.out.println("On Sucess page Details text is:"+SucessDetailstxt);
+			
+			Shp.ForgotPasswordDoneButton.click();	
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+	}
 	@DataProvider(name="SpiceTGuserpwd")
 	public Object[][]passdata(){
-		Object[][] DataProv=new Object[1][2];
-		DataProv[0][0]="prasadn@leotechnosoft.net";
-		DataProv[0][1]="leo_12345";
+		
+		ExcelWriteUtility exwrite= new ExcelWriteUtility();
+		int rows=exwrite.getRowcount(0);
+		
+		Object[][] DataProv=new Object[rows][2];
+		for (int i=0;i<rows;i++){
+			DataProv[i][0]=exwrite.getdata(0, i, 0);
+			DataProv[i][1]=exwrite.getdata(0, i, 1);
+			
+		}
+		
 		return DataProv;
 		
 	}
