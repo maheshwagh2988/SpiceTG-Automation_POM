@@ -23,7 +23,7 @@ public class ExcelRWUtility extends SpiceTG_GlobalVariables {
 	public static void main(String args[]) throws Exception{
 		
 		try {
-			File src= new File(Filepahts);
+			File src= new File("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\Testdata_1.xlsx");
 			FileInputStream fis= new FileInputStream(src);
 			XSSWb= new XSSFWorkbook(fis);
 			//HssWb= new HSSFWorkbook(fis);
@@ -53,6 +53,7 @@ public class ExcelRWUtility extends SpiceTG_GlobalVariables {
 		
 			
 	}	
+	/*
 	public String getdata(int  sheetnumber,int row ,int column){
 		SheetName=  XSSWb.getSheetAt(sheetnumber);
 		String Data=SheetName.getRow(row).getCell(column).getStringCellValue();
@@ -65,7 +66,7 @@ public class ExcelRWUtility extends SpiceTG_GlobalVariables {
 		row=row+1;
 		return row;
 		
-	}
+	}*/
 		
 	}
 	

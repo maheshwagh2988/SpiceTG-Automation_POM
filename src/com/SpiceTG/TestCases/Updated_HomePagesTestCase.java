@@ -144,7 +144,7 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 	public Object[][]passdata(){
 		
 		ExcelWriteUtility exwrite= new ExcelWriteUtility();
-		int rows=exwrite.getRowcount(0);
+		int rows=exwrite.getRowcount("LoginData");
 		
 		Object[][] DataProv=new Object[rows][2];
 		for (int i=0;i<rows;i++){

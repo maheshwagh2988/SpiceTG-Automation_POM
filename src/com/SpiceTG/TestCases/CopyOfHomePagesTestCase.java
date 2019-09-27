@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.SpiceTG.Utility.ExcelRWUtility;
 import com.SpiceTG.Utility.ExcelWriteUtility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.pages.SpiceTG_homePage;
@@ -99,30 +100,18 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
 
 	@Test(dataProvider="SpiceTGuserpwd")
-	public void Test5(String uname, String pwd)  {
-		ExcelWriteUtility ex=new ExcelWriteUtility();
-		try {
-			ex.Openfile();
-			ex.getdata(0, 0, 2);
-			ex.getRowcount(0);
-			
-		} 
-		catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-		}
-		
-		
+	public void Test5(String uname, String pwd) throws Exception  {
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
 		Shp.ForgotPassword.click();
-			
+					
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		try {
 			Thread.sleep(2000);
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+						
 			Shp.ForgotEmailtextbox.sendKeys(uname);
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			
+						
 			String Forgottxt=Shp.ForgotPwdText.getText();
 			System.out.println("Forgot txt is  :"+Forgottxt);
 			
@@ -132,7 +121,6 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 			String Sucesstxt=Shp.SucessMessage.getText();
 			System.out.println("On Sucess page text is:"+Sucesstxt);
 										
-			
 			String SucessDetailstxt=Shp.SucessMessageDetailsMessage.getText();
 			System.out.println("On Sucess page Details text is:"+SucessDetailstxt);
 			
@@ -141,29 +129,75 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
 	}
 	@DataProvider(name="SpiceTGuserpwd")
-	public Object[][]passdata(){
+	public Object[][]passdata() throws Exception{
 		
-		ExcelWriteUtility exwrite= new ExcelWriteUtility();
-		int rows=exwrite.getRowcount(0);
-		
+		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
+		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\testNData.xlsx");
+		//Readwrite.readData();
+		int rows=Readwrite.getRowcount("Sheet1");
+		System.out.println("Total rows"+rows);
+//		ExcelWriteUtility exwrite= new ExcelWriteUtility();
+//		int rows=exwrite.getRowcount("Sheet1");
+//		
 		Object[][] DataProv=new Object[rows][2];
 		for (int i=0;i<rows;i++){
-			DataProv[i][0]=exwrite.getdata(0, i, 0);
-			DataProv[i][1]=exwrite.getdata(0, i, 1);
-			
+			DataProv[i][0]=Readwrite.getdata(0, i, 0);
+			//DataProv[i][0]=Readwrite.getdata(0, i, 0);
+			//DataProv[i][1]=Readwrite.getdata(0, i, 2);
+			//DataProv[i][0]=Readwrite.getNewdata("Sheet1", "Username", 0);
 		}
-		
 		return DataProv;
 		
 	}
+	
+	
+	//For ForgotPwd pass from excel file
+	@Test(dataProvider="SpiceTGForgotPwd")
+	public void Test6(String username) throws Exception  {
+		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		Shp.ForgotPassword.click();
+					
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(2000);
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+						
+			Shp.ForgotEmailtextbox.sendKeys(username);
+						
+			String Forgottxt=Shp.ForgotPwdText.getText();
+			System.out.println("Forgot txt is  :"+Forgottxt);
+			
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			Shp.ForgotPasswordSubmiteButton.click();
+			
+			String Sucesstxt=Shp.SucessMessage.getText();
+			System.out.println("On Sucess page text is:"+Sucesstxt);
+										
+			String SucessDetailstxt=Shp.SucessMessageDetailsMessage.getText();
+			System.out.println("On Sucess page Details text is:"+SucessDetailstxt);
+			
+			Shp.ForgotPasswordDoneButton.click();	
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	//DataProvdier with Single Dimesntion Arrary
+	@DataProvider(name="SpiceTGForgotPwd")
+	public Object[][]GorgotPwddata() throws Exception{
+		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
+		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\ForgotPwdUserName.xlsx");
+		int rows=Readwrite.getRowcount("Sheet1");
+		System.out.println("Total No of Row is : "+rows);
+		Object[][] DataProv=new Object[rows][1];
+		for (int i=1;i<rows;i++){
+			DataProv[i][0]=Readwrite.getdata(0, i, 0);
+		}
+		return DataProv;
+	}
+	// Write Data using DataProvdier with Single Dimesntion Arrary
+	
 	
 	
 
