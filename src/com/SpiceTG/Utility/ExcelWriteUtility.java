@@ -102,30 +102,29 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 	return 0;
 	}
 	//Modifed WriteDatainto cell
-	public boolean WriteNewData(String NameSheet, int NameCol, int NumRow, String Setdata) throws Exception{
+	public boolean WriteNewData(String NameSheet, int Colnumbr, int NumRow, String Setdata) throws Exception{
 		
 		try{
 			
 			fis = new FileInputStream(path);
 			XSSWb = new XSSFWorkbook(fis);
-			
-	//	int Shetname=XSSWb.getSheetIndex(NameSheet);
 		int index = XSSWb.getSheetIndex(NameSheet);
 		sheet = XSSWb.getSheetAt(index);
-		int NameColu = -1;
-		row = sheet.getRow(0);
-		for (int i = 0; i < row.getLastCellNum(); i++) {
-			 System.out.println(row.getCell(i).getStringCellValue().trim());
-			if (row.getCell(i).getStringCellValue().trim().equals(NameCol))
-				NameColu = i;
+	//-----------------------------
+	
+		
+		
+		
+	//-------------------	
+		
+		row = sheet.getRow(3);
+		for (int i = 3; i < row.getLastCellNum(); i++) {
+			// System.out.println(row.getCell(i).getStringCellValue().trim());
+			 System.out.println(row.getCell(i).getStringCellValue().trim().equals(Colnumbr));
+				
 		}
-		sheet.autoSizeColumn(NameColu);
-		row = sheet.getRow(NumRow - 1);
-		row = sheet.createRow(NumRow - 1);
-
-
-		cell = row.getCell(NameCol);
-		cell = row.createCell(NameCol);
+		cell = row.getCell(Colnumbr);
+		cell = row.createCell(Colnumbr);
 		cell.setCellValue(Setdata);
 		fileOut = new FileOutputStream(path);
 		XSSWb.write(fileOut);

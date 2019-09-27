@@ -197,6 +197,19 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		return DataProv;
 	}
 	// Write Data using DataProvdier with Single Dimesntion Arrary
+	@Test
+	public void Test7() throws Exception{
+		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
+		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\ForgotPwdUserName.xlsx");
+		Readwrite.WriteNewData("Sheet1", 2, 2, "Pass");
+		
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	
