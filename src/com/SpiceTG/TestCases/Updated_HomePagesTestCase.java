@@ -49,11 +49,11 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		try {
 			timeout();
-			Shp.Enter_Email_id.sendKeys("prasadn@leotechnosoft.net");
+			Shp.Enter_User_Name_Email_id.sendKeys("prasadn@leotechnosoft.net");
 			//dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			//Here we can call timeout method from SpiceTG_GlobalVariables class it has to wait 50 second 
 			timeout();
-			Shp.Enter_Password.sendKeys("leo_12345");
+			Shp.Enter_User_Password.sendKeys("leo_123");
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			Shp.ClickOn_Login.click();
 		} catch (Exception e) {

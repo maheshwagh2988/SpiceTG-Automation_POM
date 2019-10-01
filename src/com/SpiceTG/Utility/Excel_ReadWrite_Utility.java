@@ -25,7 +25,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 	
 	public   Excel_ReadWrite_Utility() throws Exception{
 		try {
-			File src= new File(Filepahts);
+			File src= new File("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 			fis= new FileInputStream(src);
 			XWorkbook= new XSSFWorkbook(fis);
 			Sheet=  XWorkbook.getSheetAt(0);
@@ -62,7 +62,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 	public boolean setCellData(String sheetName, String colName, int rowNum, String data){
 		try
         {	
-			fis = new FileInputStream(Filepahts);
+			fis = new FileInputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 			XWorkbook = new XSSFWorkbook(fis);
 			
             int col_Num = -1;
@@ -87,7 +87,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
  
             cell.setCellValue(data);
  
-            fileOut = new FileOutputStream(Filepahts);
+            fileOut = new FileOutputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
             XWorkbook.write(fileOut);
             fileOut.close();
         }
@@ -105,7 +105,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 		FileOutputStream fileOut;
 		try {
 			XWorkbook.createSheet(sheetname);
-			fileOut = new FileOutputStream(Filepahts);
+			fileOut = new FileOutputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 			XWorkbook.write(fileOut);
 			fileOut.close();
 		} catch (Exception e) {
@@ -125,7 +125,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 			FileOutputStream fileOut;
 			try {
 				XWorkbook.removeSheetAt(index);
-				fileOut = new FileOutputStream(Filepahts);
+				fileOut = new FileOutputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 				XWorkbook.write(fileOut);
 				fileOut.close();
 			} catch (Exception e) {
@@ -194,7 +194,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 		public boolean addColumn(String sheetName, String colName) {
 			// System.out.println("**************addColumn*********************");
 			try {
-				fis = new FileInputStream(Filepahts);
+				fis = new FileInputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 				XWorkbook = new XSSFWorkbook(fis);
 				int index = XWorkbook.getSheetIndex(sheetName);
 				if (index == -1)
@@ -237,7 +237,7 @@ public class Excel_ReadWrite_Utility extends SpiceTG_GlobalVariables {
 						}
 					}
 				}
-				fileOut = new FileOutputStream(Filepahts);
+				fileOut = new FileOutputStream("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\TestNewUserPWD.xlsx");
 				XWorkbook.write(fileOut);
 				fileOut.close();
 			} catch (Exception e) {

@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -51,12 +52,17 @@ public class SpiceTG_GlobalVariables {
 	public static void initialize() throws Exception{
 		if(oDriver==null){
 			
-		System.setProperty("webdriver.ie.driver", "D:/Automation/Automation_Project/SpiceTG-Automation/Jar Files/IEDriverServer.exe");
-		dr = new InternetExplorerDriver();
+		//System.setProperty("webdriver.ie.driver", "D:/Automation/Automation_Project/SpiceTG-Automation/Jar Files/IEDriverServer.exe");
+		//dr = new InternetExplorerDriver();
+		
+		System.setProperty("webdriver.chrome.driver", "D:/Automation/Automation_Project/SpiceTG-Automation/Jar Files/chromedriver_win32_76/chromedriver.exe");
+		dr = new ChromeDriver();
+		
 		
 		dr.get(LoginURL);
-		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		dr.manage().window().maximize();
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//dr.manage().window().maximize();
  		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
  		
 
@@ -72,11 +78,17 @@ public class SpiceTG_GlobalVariables {
 	
 	protected static void quit() throws Exception {
 		if (oDriver != null) {
-			oDriver.quit();
+			oDriver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			///oDriver.quit();
+			oDriver.close();
+			
+
 			oDriver = null;
 		}
 		if (dr != null) {
-			dr.quit();
+			
+			dr.close();
+			//dr.quit();
 			dr = null;
 		}
 		

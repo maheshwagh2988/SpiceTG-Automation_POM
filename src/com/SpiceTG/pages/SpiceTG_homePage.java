@@ -8,11 +8,11 @@ public class SpiceTG_homePage {
 	public WebElement Verify_SpiceTG_Logo;
 	
 	@FindBy(id="admin-email")
-	public WebElement Enter_Email_id;
+	public WebElement Enter_User_Name_Email_id;
 	
 	@FindBy(id="admin-password")
-	public WebElement Enter_Password;
-	
+	public WebElement Enter_User_Password;
+		
 	@FindBy(xpath="//button[@ng-click='spicelogin(email_txt,password_txt)']")
 	public WebElement ClickOn_Login;
 	
@@ -42,6 +42,17 @@ public class SpiceTG_homePage {
 	@FindBy(xpath="//button[@class='btn btn-link' and text()='Cancel']")
 	public WebElement CancelButton;
 	
+	@FindBy(xpath="//div[@class='pageHead clearfix ng-scope']") //div[@class='pageHead clearfix ng-scope']//h2[text()='Tenant Management ']
+	public WebElement LandingDashboard;
+	
+	@FindBy(xpath="//a[@class='dropdown-toggle profileToggle ng-scope']")////a[@class='dropdown-toggle profileToggle ng-scope' and @aria-expanded='true'] OR ////div[@class='btn-group']
+	public WebElement LogoutDrpoDownArrow;////a[@class='dropdown-toggle profileToggle ng-scope']
+	
+	@FindBy(xpath="//a[@class='dropdown-toggle profileToggle ng-scope']")
+	public WebElement CheckDropDownEnable;
+	
+	@FindBy(xpath="//div[@class='dropdown-menu dropdown-menu-right show']//a[text()='Logout']")
+	public WebElement LogOutApplicaion; 
 
 
 }

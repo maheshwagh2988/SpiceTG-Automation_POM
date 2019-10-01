@@ -47,11 +47,11 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		try {
 			timeout();
-			Shp.Enter_Email_id.sendKeys("prasadn@leotechnosoft.net");
+			Shp.Enter_User_Name_Email_id.sendKeys("prasadn@leotechnosoft.net");
 			//dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			//Here we can call timeout method from SpiceTG_GlobalVariables class it has to wait 50 second 
 			timeout();
-			Shp.Enter_Password.sendKeys("leo_12345");
+			Shp.Enter_User_Password.sendKeys("leo_12345");
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			Shp.ClickOn_Login.click();
 		} catch (Exception e) {
@@ -99,7 +99,7 @@ public class HomePagesTestCase extends SpiceTG_GlobalVariables {
 	public Object[][]passdata(){
 		Object[][] DataProv=new Object[1][2];
 		DataProv[0][0]="prasadn@leotechnosoft.net";
-		DataProv[0][1]="leo_12345";
+		DataProv[0][1]="leo_123";
 		return DataProv;
 		
 	}

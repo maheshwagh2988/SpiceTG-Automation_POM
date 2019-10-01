@@ -2,12 +2,7 @@ package com.SpiceTG.Utility;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.formula.functions.Index;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -15,15 +10,13 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 
 
 public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
-	
-	
+		
 	static XSSFWorkbook XSSWb; 
 	static XSSFSheet SheetName;
 	public String path;
 	public String src;
 	public FileInputStream fis = null;
 	public FileOutputStream fileOut = null;
-//	private XSSFWorkbook SheetName = null;
 	private XSSFSheet sheet = null;
 	private XSSFRow row = null;
 	private XSSFCell cell = null;
@@ -37,32 +30,12 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 			FileInputStream fis= new FileInputStream(src);
 			XSSWb= new XSSFWorkbook(fis);
 			SheetName=  XSSWb.getSheetAt(0);
-			//int rowcount=SheetName.getLastRowNum();
-			//System.out.println("Total Row Count is::: " +rowcount);
-			
-			
-//			SheetName.getRow(1).createCell(5).setCellValue("Pass");
-//			SheetName.getRow(2).createCell(5).setCellValue("fails");
-//			FileOutputStream fout=new FileOutputStream(src);
-//			XSSWb.write(fout);
-			
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
-				
-//		int rowcount=SheetName.getLastRowNum();
-//		rowcount=rowcount+1;
-//		System.out.println("Total row count is "+rowcount);
-//		for(int i=0; i<rowcount;i++){
-//			
-//			String data0 =SheetName.getRow(i).getCell(0).getStringCellValue();
-//			String data1 =SheetName.getRow(i).getCell(1).getStringCellValue();
-//			System.out.println(data0);
-//			System.out.println(data1);
-//		}
+
 		XSSWb.close();
 }
 	
@@ -108,24 +81,34 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 			
 			fis = new FileInputStream(path);
 			XSSWb = new XSSFWorkbook(fis);
-		int index = XSSWb.getSheetIndex(NameSheet);
-		sheet = XSSWb.getSheetAt(index);
-	//-----------------------------
-	
-		
-		
-		
-	//-------------------	
-		
-		row = sheet.getRow(3);
-		for (int i = 3; i < row.getLastCellNum(); i++) {
-			// System.out.println(row.getCell(i).getStringCellValue().trim());
-			 System.out.println(row.getCell(i).getStringCellValue().trim().equals(Colnumbr));
-				
-		}
-		cell = row.getCell(Colnumbr);
-		cell = row.createCell(Colnumbr);
-		cell.setCellValue(Setdata);
+			if (NumRow <= 0)
+				return false;
+			int index = XSSWb.getSheetIndex(NameSheet);
+			
+			int colNum = -1;
+			if (index == -1)
+				return false;
+
+			sheet = XSSWb.getSheetAt(index);
+
+			row = sheet.getRow(0);
+			for (int i = 0; i < row.getLastCellNum(); i++) {
+				// System.out.println(row.getCell(i).getStringCellValue().trim());
+				if (row.getCell(i).getStringCellValue().trim().equals(Colnumbr))
+					colNum = i;
+			}
+			if (colNum == -1)
+				return false;
+
+			sheet.autoSizeColumn(colNum);
+			row = sheet.getRow(NumRow - 1);
+			if (row == null)
+				row = sheet.createRow(NumRow - 1);
+
+			cell = row.getCell(colNum);
+			if (cell == null)
+				cell = row.createCell(colNum);
+			cell.setCellValue(Setdata);
 		fileOut = new FileOutputStream(path);
 		XSSWb.write(fileOut);
 		fileOut.close();
@@ -135,12 +118,12 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 	}
 		return true;
 	}
-	
-	
+
 	
 	public  String getdata(int  sheetnumber,int rown ,int column){
 		SheetName=  XSSWb.getSheetAt(sheetnumber);
-		String Data=SheetName.getRow(rown).getCell(column).getStringCellValue();
+		String Data=SheetName.getRow(rown).getCell(column).getStringCellValue();//+"|| " added on 9/30/2019
+	
 		return Data;
 		//return "row "+row+" or column "+column +" does not exist  in Excel";
 		

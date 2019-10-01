@@ -2,23 +2,27 @@ package com.SpiceTG.TestCases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.seleniumhq.jetty9.util.thread.ShutdownThread;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.SpiceTG.Utility.AlertHandel;
 import com.SpiceTG.Utility.ExcelRWUtility;
 import com.SpiceTG.Utility.ExcelWriteUtility;
+import com.SpiceTG.Utility.Excel_ReadWrite_Utility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.pages.SpiceTG_homePage;
 
 
 public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
-	@Test
+	@Test //To Verify Page Title
 	public void Test1() {
 
 		System.out.println(dr.getTitle());
@@ -29,7 +33,7 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		System.out.println("SpiceTG Page Title has been Verified Sucessfully!"+PageTitle);
 						
 	}
-	@Test
+	@Test  //To Verify Application Logo
 	public void Test2() throws InterruptedException {
 		
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
@@ -41,21 +45,38 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		
 	}
-	@Test
+	@Test //To Login with Valid user and after Login Print Default dashBoard Title
 	public void Test3() {
 		
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		AlertHandel alrt=PageFactory.initElements(dr, AlertHandel.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		try {
-			timeout();
-			Shp.Enter_Email_id.sendKeys("prasadn@leotechnosoft.net");
-			//dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			timeout();  //neel.sharma@spicetg.com
+			Shp.Enter_User_Name_Email_id.sendKeys("prasadn@leotechnosoft.net");//prasadn@leotechnosoft.net
 			//Here we can call timeout method from SpiceTG_GlobalVariables class it has to wait 50 second 
 			timeout();
-			Shp.Enter_Password.sendKeys("leo_12345");
+			Shp.Enter_User_Password.sendKeys("leo_123");
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			Shp.ClickOn_Login.click();
+			timeout();
+			String LandingPageDashboard=Shp.LandingDashboard.getText();
+			System.out.println("Landing Page Dashboard Name is :"+LandingPageDashboard);
+							//OR
+			//Assert.assertEquals(Shp.LandingDashboard.getText(),"Tenant Management");
+			timeout();
+			Assert.assertTrue(Shp.LandingDashboard.getText().contains(LandingPageDashboard), "Landing Page Dashboard Title does not match");
+			dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			Shp.LogoutDrpoDownArrow.click();
+		
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+//			String text= Shp.CheckDropDownEnable.getAttribute("aria-expanded");
+//			Assert.assertTrue(text=="true","Dropdown is not expanded");
+			Shp.LogOutApplicaion.click();
+				
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -63,42 +84,84 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 						
 	}
-	/*
-	@Test(dataProvider="SpiceTGuserpwd")
-	public void Test4(String uname, String pwd) {
+	 //9/30/2019
+	@Test(dataProvider="SpiceTG_UserName_and_Password")
+	public void Test4(String UserName, String Password) {
 		
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
-		Shp.ForgotPassword.click();
-			
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		try {
 			Thread.sleep(2000);
+			Shp.Enter_User_Name_Email_id.sendKeys(UserName);
+			timeout();
+			Shp.Enter_User_Password.sendKeys(Password);
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			Shp.ForgotEmailtextbox.sendKeys(uname);
+			Shp.ClickOn_Login.click();
+			timeout();
+			String LandingPageDashboard=Shp.LandingDashboard.getText();
+			System.out.println("Landing Page Dashboard Name is :"+LandingPageDashboard);
+			Assert.assertTrue(Shp.LandingDashboard.getText().contains(LandingPageDashboard), "Landing Page Dashboard Title does not match");
+			
+	        System.out.println("Home page title after login is" + LandingPageDashboard );
+	        if(LandingPageDashboard.equalsIgnoreCase("Tenant Management "))
+	        {
+
+	            System.out.println("PASSED");
+	        }
+
+	        else{
+	            System.out.println("FAILED");
+
+	            }
+
+			
+			System.out.println("User has been Login with valid Details and the userName is: "+UserName);
+			
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			
-			String Forgottxt=Shp.ForgotPwdText.getText();
-			System.out.println("Forgot txt is  :"+Forgottxt);
-			
+			Shp.LogoutDrpoDownArrow.click();
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			Shp.ForgotPasswordSubmiteButton.click();
+			Shp.LogOutApplicaion.click();
+			if(Password==null){
+				dr.close();
+			}
 			
-			String Sucesstxt=Shp.SucessMessage.getText();
-			System.out.println("On Sucess page text is:"+Sucesstxt);
-										
-			
-			String SucessDetailstxt=Shp.SucessMessageDetailsMessage.getText();
-			System.out.println("On Sucess page Details text is:"+SucessDetailstxt);
-			
-			Shp.ForgotPasswordDoneButton.click();	
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 							
-	} */
+	} 
+	@DataProvider(name="SpiceTG_UserName_and_Password")
+	public Object[][]Userpassdata() throws Exception{
+		
+		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
 	
+		
+		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\testNData.xlsx");
+		
+		int rows=Readwrite.getRowcount("Sheet1");
+		System.out.println("Total rows"+rows);
+		
+		
+		Object[][] UserPass=new Object[rows][2];
+		for (int i=0;i<rows;i++){
+			
+			
+		UserPass[i][0]=Readwrite.getdata(0, i, 0);
+		UserPass[i][1]=Readwrite.getdata(0, i, 1);
+			
+			
 
+		
+			
+			
+		}
+		return UserPass;
+		
+	}
+
+	
+	
+	//till here 9/30/2019
 	@Test(dataProvider="SpiceTGuserpwd")
 	public void Test5(String uname, String pwd) throws Exception  {
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
@@ -201,13 +264,9 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	public void Test7() throws Exception{
 		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
 		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\ForgotPwdUserName.xlsx");
-		Readwrite.WriteNewData("Sheet1", 2, 2, "Pass");
-		
-		
-		
-		
-		
-		
+		Readwrite.WriteNewData("Sheet1", 3, 2, "Pass");
+		Readwrite.WriteNewData("Sheet1", 3, 3, "Fail");
+		Readwrite.WriteNewData("Sheet1", 3, 4, "fail");
 	}
 	
 	
