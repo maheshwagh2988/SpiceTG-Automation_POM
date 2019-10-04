@@ -5,9 +5,7 @@
     <classes>
       <class name="com.SpiceTG.TestCases.CopyOfHomePagesTestCase">
         <methods>
-          <include name="beforeClass"/>
           <include name="Test4"/>
-          <include name="afterClass"/>
         </methods>
       </class> <!-- com.SpiceTG.TestCases.CopyOfHomePagesTestCase -->
     </classes>

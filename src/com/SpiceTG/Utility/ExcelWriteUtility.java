@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 
 
 public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
-		
+
 	static XSSFWorkbook XSSWb; 
 	static XSSFSheet SheetName;
 	public String path;
@@ -20,11 +20,11 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 	private XSSFSheet sheet = null;
 	private XSSFRow row = null;
 	private XSSFCell cell = null;
-	
-	
+
+
 	public void Openfile(String path ) throws Exception{
 		this.path = path;
-			
+
 		try {
 			File src= new File(path);
 			FileInputStream fis= new FileInputStream(src);
@@ -37,16 +37,16 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 		}
 
 		XSSWb.close();
-}
-	
+	}
+
 	public int readData(){
-		
+
 		int rowcount=SheetName.getLastRowNum();
 		rowcount=rowcount+1;
 		//row = SheetName.getRow(0);
 		System.out.println("Total row count is "+rowcount);
 		for(int i=0; i<rowcount;i++){
-			
+
 			System.out.println("********Excel file Rows Data are given blow********");
 			String data0 =SheetName.getRow(i).getCell(0).getStringCellValue();
 			String data1 =SheetName.getRow(i).getCell(1).getStringCellValue();
@@ -61,30 +61,30 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 			System.out.println(data4);
 			System.out.println(data5);
 		}
-		
+
 		return rowcount;
-		
+
 	}
-	
+
 	public int writeData() throws Exception{
-	SheetName.getRow(1).createCell(5).setCellValue("Pass");
-	SheetName.getRow(2).createCell(5).setCellValue("fails");
-	fileOut = new FileOutputStream(path);
-	XSSWb.write(fileOut);
-	fileOut.close();
-	return 0;
+		SheetName.getRow(1).createCell(5).setCellValue("Pass");
+		SheetName.getRow(2).createCell(5).setCellValue("fails");
+		fileOut = new FileOutputStream(path);
+		XSSWb.write(fileOut);
+		fileOut.close();
+		return 0;
 	}
 	//Modifed WriteDatainto cell
 	public boolean WriteNewData(String NameSheet, int Colnumbr, int NumRow, String Setdata) throws Exception{
-		
+
 		try{
-			
+
 			fis = new FileInputStream(path);
 			XSSWb = new XSSFWorkbook(fis);
 			if (NumRow <= 0)
 				return false;
 			int index = XSSWb.getSheetIndex(NameSheet);
-			
+
 			int colNum = -1;
 			if (index == -1)
 				return false;
@@ -109,34 +109,44 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 			if (cell == null)
 				cell = row.createCell(colNum);
 			cell.setCellValue(Setdata);
-		fileOut = new FileOutputStream(path);
-		XSSWb.write(fileOut);
-		fileOut.close();
-	} catch (Exception e) {
-		e.printStackTrace();
-		return false;
-	}
+			fileOut = new FileOutputStream(path);
+			XSSWb.write(fileOut);
+			fileOut.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
 
-	
+
 	public  String getdata(int  sheetnumber,int rown ,int column){
+		String CellData=null;
+		try{
 		SheetName=  XSSWb.getSheetAt(sheetnumber);
-		String Data=SheetName.getRow(rown).getCell(column).getStringCellValue();//+"|| " added on 9/30/2019
-	
-		return Data;
-		//return "row "+row+" or column "+column +" does not exist  in Excel";
+		CellData=SheetName.getRow(rown).getCell(column).getStringCellValue();//+"|| " added on 9/30/2019
+	//	System.out.println("Cell data is: "+CellData);
 		
+		
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
+			
+		}
+		return CellData;
+		
+		
+
 		//Modified code
 		/*
 		try{
-		
+
 		//SheetName=  XSSWb.getSheetAt(sheetnumber);
 		int index = XSSWb.getSheetIndex(SheetName);
 		sheet = XSSWb.getSheetAt(index);
 		row = sheet.getRow(rown - 1);
 		cell = row.getCell(rown);
-	
+
 		return cell.getStringCellValue();
 	}catch (Exception e) {
 
@@ -144,57 +154,73 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 		return "row " + rown + " or column " + column + " does not exist  in xls";
 	}  */
 	}
-	
-	
+	public String getStringData(String sheet_Name, String colName, int rowNum){
+		SheetName=  XSSWb.getSheet(sheet_Name);
+		int index = XSSWb.getSheetIndex(sheet_Name);
+		row = SheetName.getRow(0);
+		return colName;
+
+	}	
+
+
 	public  String getNewdata(String sheetName, String colName, int rowNum){
 		try
 		{
-		int col_Num=-1;
-		SheetName = XSSWb.getSheet(sheetName);
-        row = SheetName.getRow(0);
-        for(int i = 0; i < row.getLastCellNum(); i++)
-        {
-            if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
-            	col_Num = i;
-        }
-        row = SheetName.getRow(rowNum - 1);
-        cell = row.getCell(col_Num);
-       	return cell.getStringCellValue();
+			int col_Num=-1;
+			SheetName = XSSWb.getSheet(sheetName);
+			row = SheetName.getRow(0);
+			for(int i = 0; i < row.getLastCellNum(); i++)
+			{
+				if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
+					col_Num = i;
+			}
+			row = SheetName.getRow(rowNum - 1);
+			cell = row.getCell(col_Num);
+			return cell.getStringCellValue();
 		}catch(Exception e)
-        {
-               System.out.println(e.getMessage());
-        }
+		{
+			System.out.println(e.getMessage());
+		}
 		return "row "+rowNum+" or column "+colName +" does not exist  in Excel";
 	}
-	
-	
+
+
 	//public  int getRowcount(int SheetIndex){
-		//int row=XSSWb.getSheetAt(SheetIndex).getLastRowNum();
-		//row=row+1;
-		//return row;
+	//int row=XSSWb.getSheetAt(SheetIndex).getLastRowNum();
+	//row=row+1;
+	//return row;
 	public  int getRowcount(String Shet_Name){
 		/*
 			int index=XSSWb.getSheetIndex(Shet_Name);
 			//System.out.println("Name of Sheet is Print ::: "+index);
-			
-			
+
+
 			SheetName=XSSWb.getSheetAt(index);
 			int number =SheetName.getLastRowNum();
 			return number;
 			------------------*/
-			int index = XSSWb.getSheetIndex(Shet_Name);
-			if (index == -1)
-				return 0;
-			else {
-				SheetName = XSSWb.getSheetAt(index);
-				int number = SheetName.getLastRowNum() + 1;
-				return number;
-			}
-			
+		int index = XSSWb.getSheetIndex(Shet_Name);
+		if (index == -1)
+			return 0;
+		else {
+			SheetName = XSSWb.getSheetAt(index);
+			int number = SheetName.getLastRowNum() + 1;
+			return number;
 		}
-
+		
 	}
 	
-	
+	public int getColumnCount(String sheetName){
+		sheet = XSSWb.getSheet(sheetName);
+		row = sheet.getRow(0);
+		if (row == null)
+		return -1;
+		return row.getLastCellNum();
+		
+	}
+
+}
+
+
 
 

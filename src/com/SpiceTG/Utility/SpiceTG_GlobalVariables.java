@@ -25,7 +25,7 @@ public class SpiceTG_GlobalVariables {
 	public static String LoginURL = "https://spicetg.azurewebsites.net/";
 	public static EventFiringWebDriver oDriver = null;
 	//public static String testDataExcelFileName  = "testdata.xlsx";
-//	public static String wait = null;
+	//public static String wait = null;
 	public static String Filepahts  = "D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\Testdata_1.xlsx";
 		
 	@BeforeMethod
@@ -79,7 +79,7 @@ public class SpiceTG_GlobalVariables {
 	protected static void quit() throws Exception {
 		if (oDriver != null) {
 			oDriver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-			///oDriver.quit();
+		//	oDriver.quit();
 			oDriver.close();
 			
 
