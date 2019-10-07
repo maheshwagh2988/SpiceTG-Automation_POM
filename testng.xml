@@ -2,8 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test name="Test">
-   <classes>
-      <class name="com.SpiceTG.TestCases.HomePageTestCase"/>
-         </classes>
+    <classes>
+      <class name="com.SpiceTG.TestCases.Updated_HomePagesTestCase"/>
+      <class name="com.SpiceTG.TestCases.CopyOfHomePagesTestCase"/>
+      <class name="com.SpiceTG.TestCases.HomePagesTestCase"/>
+    </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

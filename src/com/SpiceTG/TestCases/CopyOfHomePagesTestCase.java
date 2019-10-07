@@ -1,29 +1,20 @@
 package com.SpiceTG.TestCases;
 
+import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.seleniumhq.jetty9.util.thread.ShutdownThread;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
-
 import com.SpiceTG.Utility.AlertHandel;
-import com.SpiceTG.Utility.ExcelRWUtility;
 import com.SpiceTG.Utility.ExcelWriteUtility;
-import com.SpiceTG.Utility.Excel_ReadWrite_Utility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.pages.SpiceTG_homePage;
 
 
 public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
-	@Test //To Verify Page Title
+	@Test //To Verify Page Title on the page
 	public void Test1() {
 
 		System.out.println(dr.getTitle());

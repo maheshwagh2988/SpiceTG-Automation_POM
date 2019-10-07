@@ -3,6 +3,11 @@ package com.SpiceTG.Utility;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -124,36 +129,52 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 		String CellData=null;
 		try{
 		SheetName=  XSSWb.getSheetAt(sheetnumber);
-		CellData=SheetName.getRow(rown).getCell(column).getStringCellValue();//+"|| " added on 9/30/2019
-	//	System.out.println("Cell data is: "+CellData);
+		String cellData = "";
+        cell = SheetName.getRow(rown).getCell(column);
+        cell.setCellType(CellType.STRING);
+        cellData = cell.getStringCellValue();
+        
+        return cellData;
 		
+	//	CellData=SheetName.getRow(rown).getCell(column).getStringCellValue();
 		
-		}catch(Exception e){
+		}
+		catch(Exception e)
+		{
 			System.out.println(e.getMessage());
-			System.out.println(e.getCause());
-			
 		}
 		return CellData;
-		
-		
-
-		//Modified code
-		/*
-		try{
-
-		//SheetName=  XSSWb.getSheetAt(sheetnumber);
-		int index = XSSWb.getSheetIndex(SheetName);
-		sheet = XSSWb.getSheetAt(index);
-		row = sheet.getRow(rown - 1);
-		cell = row.getCell(rown);
-
-		return cell.getStringCellValue();
-	}catch (Exception e) {
-
-		e.printStackTrace();
-		return "row " + rown + " or column " + column + " does not exist  in xls";
-	}  */
 	}
+	// Check Row or Column is empty 
+	/*
+public static boolean isRowEmpty(Row row) {
+	boolean isEmpty=true;
+	DataFormatter dataFormatter = new DataFormatter();
+	if(row != null){
+		for(Cell cell: row){
+			if(dataFormatter.formatCellValue(cell).trim().length() > 0) {
+                isEmpty = false;
+                System.out.println("UserName or Password Field is empty");
+                oDriver.close();
+                break;
+            }
+		}
+	} return isEmpty;
+	
+	*/
+//    String data="";
+//    for(Cell cell:row) {
+//        data=data.concat(cell.getStringCellValue());
+//    }
+//    if(!data.trim().isEmpty()) {
+//        isEmpty=false;
+//        System.out.println("UserName or Password Field is empty");
+//        oDriver.close();
+//    }
+//    return isEmpty;
+//}
+	
+	//
 	public String getStringData(String sheet_Name, String colName, int rowNum){
 		SheetName=  XSSWb.getSheet(sheet_Name);
 		int index = XSSWb.getSheetIndex(sheet_Name);

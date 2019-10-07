@@ -1,15 +1,10 @@
 package com.SpiceTG.TestCases;
 
+import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.seleniumhq.jetty9.util.thread.ShutdownThread;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.pages.SpiceTG_homePage;
 

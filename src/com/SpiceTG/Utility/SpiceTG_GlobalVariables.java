@@ -40,6 +40,8 @@ public class SpiceTG_GlobalVariables {
 	@AfterMethod
 	public static void afterClass() throws Exception {
 		quit();
+		//captureScreenshotUtility.captureScreenshot("captureScreenshot");
+		
 	}
 	
 	

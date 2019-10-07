@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="6" total="10" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="86713" started-at="2019-10-04T14:25:55Z" finished-at="2019-10-04T14:27:21Z">
+  <suite name="Default suite" duration-ms="118503" started-at="2019-10-07T13:12:42Z" finished-at="2019-10-07T13:14:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="86713" started-at="2019-10-04T14:25:55Z" finished-at="2019-10-04T14:27:21Z">
+    <test name="Default test" duration-ms="118503" started-at="2019-10-07T13:12:42Z" finished-at="2019-10-07T13:14:40Z">
       <class name="com.SpiceTG.TestCases.CopyOfHomePagesTestCase">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="beforeClass" is-config="true" duration-ms="12445" started-at="2019-10-04T19:55:55Z" finished-at="2019-10-04T19:56:08Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="beforeClass" is-config="true" duration-ms="8912" started-at="2019-10-07T18:42:42Z" finished-at="2019-10-07T18:42:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="Test4" duration-ms="9726" started-at="2019-10-04T19:56:08Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-04T19:56:17Z">
+        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="Test4" duration-ms="8984" started-at="2019-10-07T18:42:51Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-07T18:43:00Z">
           <params>
             <param index="0">
               <value>
@@ -27,15 +27,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test4 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="afterClass" is-config="true" duration-ms="257" started-at="2019-10-04T19:56:17Z" finished-at="2019-10-04T19:56:18Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="afterClass" is-config="true" duration-ms="2200" started-at="2019-10-07T18:43:00Z" finished-at="2019-10-07T18:43:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="beforeClass" is-config="true" duration-ms="9614" started-at="2019-10-04T19:56:18Z" finished-at="2019-10-04T19:56:27Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="beforeClass" is-config="true" duration-ms="9065" started-at="2019-10-07T18:43:03Z" finished-at="2019-10-07T18:43:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="Test4" duration-ms="10956" started-at="2019-10-04T19:56:27Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-04T19:56:38Z">
+        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="Test4" duration-ms="9015" started-at="2019-10-07T18:43:12Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-07T18:43:21Z">
           <params>
             <param index="0">
               <value>
@@ -51,15 +51,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test4 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="afterClass" is-config="true" duration-ms="2224" started-at="2019-10-04T19:56:38Z" finished-at="2019-10-04T19:56:40Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="afterClass" is-config="true" duration-ms="238" started-at="2019-10-07T18:43:21Z" finished-at="2019-10-07T18:43:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="beforeClass" is-config="true" duration-ms="19123" started-at="2019-10-04T19:56:40Z" finished-at="2019-10-04T19:57:00Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="beforeClass" is-config="true" duration-ms="9107" started-at="2019-10-07T18:43:21Z" finished-at="2019-10-07T18:43:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="Test4" duration-ms="9430" started-at="2019-10-04T19:57:00Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-04T19:57:09Z">
+        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="Test4" duration-ms="57442" started-at="2019-10-07T18:43:30Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-07T18:44:27Z">
           <params>
             <param index="0">
               <value>
@@ -68,22 +68,22 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[leo_12345]]>
+                <![CDATA[]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test4 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="afterClass" is-config="true" duration-ms="94" started-at="2019-10-04T19:57:09Z" finished-at="2019-10-04T19:57:09Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="afterClass" is-config="true" duration-ms="2450" started-at="2019-10-07T18:44:27Z" finished-at="2019-10-07T18:44:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="beforeClass" is-config="true" duration-ms="9970" started-at="2019-10-04T19:57:09Z" finished-at="2019-10-04T19:57:19Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="beforeClass" is-config="true" duration-ms="8291" started-at="2019-10-07T18:44:30Z" finished-at="2019-10-07T18:44:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="Test4" duration-ms="2110" started-at="2019-10-04T19:57:19Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-04T19:57:21Z">
+        <test-method status="PASS" signature="Test4(java.lang.String, java.lang.String)[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="Test4" duration-ms="2084" started-at="2019-10-07T18:44:38Z" data-provider="SpiceTG_UserName_and_Password" finished-at="2019-10-07T18:44:40Z">
           <params>
             <param index="0">
               <value is-null="true"/>
@@ -95,7 +95,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test4 -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@32d992b2]" name="afterClass" is-config="true" duration-ms="204" started-at="2019-10-04T19:57:21Z" finished-at="2019-10-04T19:57:21Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.SpiceTG.TestCases.CopyOfHomePagesTestCase@7c16905e]" name="afterClass" is-config="true" duration-ms="219" started-at="2019-10-07T18:44:40Z" finished-at="2019-10-07T18:44:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
