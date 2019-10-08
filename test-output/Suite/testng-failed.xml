@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.SpiceTG.TestCases.HomePagesTestCase">
+        <methods>
+          <include name="Test1"/>
+          <include name="Test2"/>
+          <include name="Test3"/>
+          <include name="Test4" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.SpiceTG.TestCases.HomePagesTestCase -->
+      <class name="com.SpiceTG.TestCases.Updated_HomePagesTestCase">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="Test5"/>
+          <include name="Test3"/>
+          <include name="Test2"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.SpiceTG.TestCases.Updated_HomePagesTestCase -->
+      <class name="com.SpiceTG.TestCases.CopyOfHomePagesTestCase">
+        <methods>
+          <include name="Test7"/>
+          <include name="Test6" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="Test3"/>
+          <include name="Test4" invocation-numbers="0 1 2 3"/>
+          <include name="Test2"/>
+          <include name="Test5" invocation-numbers="0 1 2 3"/>
+          <include name="Test1"/>
+        </methods>
+      </class> <!-- com.SpiceTG.TestCases.CopyOfHomePagesTestCase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

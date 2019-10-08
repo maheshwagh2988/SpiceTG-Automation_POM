@@ -23,6 +23,7 @@ public class AlertHandel extends SpiceTG_GlobalVariables{
 		        // if present consume the alert
 		        confirmationAlert.accept();
 		        System.out.println("Invalid UserName or Password Enter by User");
+		        ScreenshotUtility.captureScreenshot("Alert !UserName or Pwd is Invalid on Date time");
 		        System.out.println("Test Case is Failed");
 		        oDriver.close();
 
