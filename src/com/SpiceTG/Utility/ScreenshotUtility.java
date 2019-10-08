@@ -1,22 +1,17 @@
 package com.SpiceTG.Utility;
 
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.imageio.ImageIO;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
-
-import com.SpiceTG.pages.SpiceTG_homePage;
 
 public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 	
@@ -27,13 +22,15 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 				
 		File source=ts.getScreenshotAs(OutputType.FILE);
 		
+		BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		ImageIO.write(image, "png", new File("./ScreenshotsFullWebPage/"+screenshotName+ timestamp()+".png"));
 		String Screenshottime =  new SimpleDateFormat("yyyyMMddhhmmss'.txt'").format(new Date());
 
 		FileUtils.copyFile(source, new File("./Screenshots/"+screenshotName+ timestamp()+".png"));
 							//or
 		//FileUtils.copyFile(source, new File("./Screenshots/"+screenshotName+".png"+Screenshottime));
 
-		System.out.println("Screenshot taken");
+		System.out.println("Screenshot taken for Failed Test Case");
 		} 
 		catch (Exception e)
 		{
@@ -47,9 +44,28 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 	public static String timestamp() {
 	    return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
 	}
+//This method to use to take 	FullScreenCaptureExample
+	public static void FullScreenCapture (String FullSS)  {
+		try {
+			// create object to robt class
+			Robot robot = new Robot();
+			// create rectangle for full screenshot
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			// capture screen of the desktop
+			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+			// save the screenshot to local system
+			ImageIO.write(screenFullImage, "jpg", new File("./ScreenshotsFullWebPage/"+FullSS+ timestamp()+".jpg"));
+			System.out.println("Full Desktop screenshot saved!");
+		} catch (Exception e) {
+		
+			System.out.println(e.getMessage());
+		} 
+	}
 
-	//Take Screenshot of WebElement
-	public void WebElementLocationSS(String SSName){
+//Take Screenshot of WebElement
+/*
+	
+	public static String WebElementLocationSS(String SSName){
 	try {
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
 		Point point = Shp.Enter_User_Password.getLocation();
@@ -65,9 +81,11 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 		
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
-		
-	} 
+	}
+	return SSName; 
 }
+*/	
+	
 	
 	
 	public void getResult(ITestResult result) throws Exception

@@ -92,7 +92,7 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		   	if(!flag)
 	        	{
 					String LandingPageDashboard=Shp.LandingDashboard.getText();
-					System.out.println("Landing Page Dashboard Name is :"+LandingPageDashboard);
+					//System.out.println("Landing Page Dashboard Name is :"+LandingPageDashboard);
 					timeout();
 					Assert.assertTrue(Shp.LandingDashboard.getText().contains(LandingPageDashboard), "Landing Page Dashboard Title does not match");
 					System.out.println("Home page title after login is" + LandingPageDashboard );
