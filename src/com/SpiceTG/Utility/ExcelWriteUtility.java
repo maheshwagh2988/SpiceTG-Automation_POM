@@ -130,8 +130,7 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 		try{
 		SheetName=  XSSWb.getSheetAt(sheetnumber);
 		String cellData = "";
-	
-        cell = SheetName.getRow(rown).getCell(column);
+		cell = SheetName.getRow(rown).getCell(column);
         cell.setCellType(CellType.STRING);
         cellData = cell.getStringCellValue();
         

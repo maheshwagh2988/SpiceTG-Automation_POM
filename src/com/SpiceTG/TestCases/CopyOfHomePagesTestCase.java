@@ -82,8 +82,7 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		try {
 			Thread.sleep(2000);
 			Shp.Enter_User_Name_Email_id.sendKeys(UserName);
-			
-			timeout();
+			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			Shp.Enter_User_Password.sendKeys(Password);
 			dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			Shp.ClickOn_Login.click();
@@ -117,7 +116,6 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		Readwrite.Openfile("D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\UserNameAndPassword.xlsx");
 		int rows=Readwrite.getRowcount("Sheet1");
 		System.out.println("Total no of rows in the given Excel file is: "+rows);
-		
 		int column=Readwrite.getColumnCount("Sheet1");
 		System.out.println("Total no of Column in the given Excel file is:"+column);
 		Object[][] UserPass=new Object[rows][2];
