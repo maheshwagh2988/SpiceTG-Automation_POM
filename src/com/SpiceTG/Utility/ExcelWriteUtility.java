@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -133,7 +130,11 @@ public  class ExcelWriteUtility extends SpiceTG_GlobalVariables {
 		cell = SheetName.getRow(rown).getCell(column);
         cell.setCellType(CellType.STRING);
         cellData = cell.getStringCellValue();
-        
+        /*
+        if(cellData==""){
+        	ScreenshotUtility.FullScreenCapture("Invalid User");
+        }
+        */
         return cellData;
 		
 	//	CellData=SheetName.getRow(rown).getCell(column).getStringCellValue();

@@ -1,12 +1,7 @@
 package com.SpiceTG.Utility;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.support.PageFactory;
-
-import com.SpiceTG.pages.SpiceTG_homePage;
 
 public class AlertHandel extends SpiceTG_GlobalVariables{
 	

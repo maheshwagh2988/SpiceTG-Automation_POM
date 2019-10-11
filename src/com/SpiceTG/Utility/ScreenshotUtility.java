@@ -55,7 +55,7 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
 			// save the screenshot to local system
 			ImageIO.write(screenFullImage, "jpg", new File("./ScreenshotsFullWebPage/"+FullSS+ timestamp()+".jpg"));
-			System.out.println("Full Desktop screenshot saved!");
+			//System.out.println("Full Desktop screenshot saved!");
 		} catch (Exception e) {
 		
 			System.out.println(e.getMessage());

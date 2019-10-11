@@ -9,7 +9,6 @@ import org.testng.annotations.DataProvider;
 import com.SpiceTG.Utility.AlertHandel;
 import com.SpiceTG.Utility.ExcelWriteUtility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
-import com.SpiceTG.Utility.ScreenshotUtility;
 import com.SpiceTG.pages.SpiceTG_homePage;
 
 
@@ -33,7 +32,6 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Assert.assertEquals(Shp.Verify_SpiceTG_Logo.getAttribute("src"),"https://spicetg.azurewebsites.net/assets/img/cmy_logo.png","Actual img is not expected");
-		
 		String LogoVerification=Shp.Verify_SpiceTG_Logo.getText();
 		System.out.println(LogoVerification);
 		System.out.println("SpiceTG_Logo Verified Sucessfully!" + LogoVerification);
