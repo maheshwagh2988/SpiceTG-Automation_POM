@@ -52,7 +52,15 @@ public class SpiceTG_homePage {
 	public WebElement CheckDropDownEnable;
 	
 	@FindBy(xpath="//div[@class='dropdown-menu dropdown-menu-right show']//a[text()='Logout']")
-	public WebElement LogOutApplicaion; 
+	public WebElement LogOutApplicaion;
+	
+	
+	//Add method to login
+	public void login(String Uname, String Pwd){
+		Enter_User_Name_Email_id.sendKeys(Uname);
+		Enter_User_Password.sendKeys(Pwd);
+		ClickOn_Login.click();
+	}
 
 
 }
