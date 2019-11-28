@@ -47,7 +47,7 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 //This method to use to take 	FullScreenCaptureExample
 	public static void FullScreenCapture (String FullSS)  {
 		try {
-			// create object to robt class
+			// create object to robot class
 			Robot robot = new Robot();
 			// create rectangle for full screenshot
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
@@ -61,32 +61,6 @@ public class ScreenshotUtility extends SpiceTG_GlobalVariables {
 			System.out.println(e.getMessage());
 		} 
 	}
-
-//Take Screenshot of WebElement
-/*
-	
-	public static String WebElementLocationSS(String SSName){
-	try {
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
-		Point point = Shp.Enter_User_Password.getLocation();
-		File screen = ((TakesScreenshot) dr).getScreenshotAs(OutputType.FILE);
-		int xcordinate = point.getX();
-		int ycordinate = point.getY();
-		int imageWidth = Shp.Enter_User_Password.getSize().getWidth();
-		int imageHeight = Shp.Enter_User_Password.getSize().getHeight();
-		BufferedImage img = ImageIO.read(screen);
-		BufferedImage destination = img.getSubimage(xcordinate, ycordinate, imageWidth, imageHeight);
-		ImageIO.write(destination, "png", screen);
-		FileUtils.copyFile(screen, new File("./Screenshots/"+SSName+ timestamp()+".png"));
-		
-	} catch (Exception e) {
-		System.out.println(e.getMessage());
-	}
-	return SSName; 
-}
-*/	
-	
-	
 	
 	public void getResult(ITestResult result) throws Exception
     {

@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import com.SpiceTG.Utility.ExcelWriteUtility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 import com.SpiceTG.Utility.Updated_Excel_RW_Utility;
-import com.SpiceTG.pages.SpiceTG_homePage;
+import com.SpiceTG.pages.SpiceTG_LoginPage;
 
 
 public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
@@ -27,7 +27,7 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 	@Test
 	public void Test2() throws InterruptedException {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Assert.assertEquals(Shp.Verify_SpiceTG_Logo.getAttribute("src"),"https://spicetg.azurewebsites.net/assets/img/cmy_logo.png","Actual img is not expected");
 		String LogoVerification=Shp.Verify_SpiceTG_Logo.getText();
@@ -39,7 +39,7 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 	@Test
 	public void Test3() {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		try {
@@ -62,7 +62,7 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 	@Test(dataProvider="SpiceTGuserpwd")
 	public void Test4(String uname, String pwd) {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		Shp.ForgotPassword.click();
 			
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -97,7 +97,7 @@ public class Updated_HomePagesTestCase extends SpiceTG_GlobalVariables {
 	@Test()
 	public void Test5() throws Exception  {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		Shp.ForgotPassword.click();
 		
 		Updated_Excel_RW_Utility reader=new Updated_Excel_RW_Utility();

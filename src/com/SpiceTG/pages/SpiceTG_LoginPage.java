@@ -1,10 +1,14 @@
 package com.SpiceTG.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
 
-public class SpiceTG_homePage {
-	@FindBy(xpath="//img[@src='/assets/img/cmy_logo.png']")
+public class SpiceTG_LoginPage extends SpiceTG_GlobalVariables{
+	@FindBy(xpath="//img[@src='/assets/img/cmy_logo.png']")////div[@class='logoCenter']
 	public WebElement Verify_SpiceTG_Logo;
 	
 	@FindBy(id="admin-email")
@@ -16,6 +20,8 @@ public class SpiceTG_homePage {
 	@FindBy(xpath="//button[@ng-click='spicelogin(email_txt,password_txt)']")
 	public WebElement ClickOn_Login;
 	
+	//ForgotPassword
+	
 	@FindBy(xpath="//a[@class='form-link ']")
 	public WebElement ForgotPassword;
 	
@@ -24,8 +30,7 @@ public class SpiceTG_homePage {
 	
 	@FindBy(xpath="//div[@class='modal-header']//h5[@class='modal-title']")
 	public WebElement ForgotPwdText;
-	
-	
+		
 	@FindBy(xpath="//div[@class='modal-header']//h5[@class='modal-title text-primary'and text()='Success!']")
 	public WebElement SucessMessage;
 	
@@ -42,6 +47,8 @@ public class SpiceTG_homePage {
 	@FindBy(xpath="//button[@class='btn btn-link' and text()='Cancel']")
 	public WebElement CancelButton;
 	
+	//Page Object Of SpiceTGHomePage 
+	
 	@FindBy(xpath="//div[@class='pageHead clearfix ng-scope']") //div[@class='pageHead clearfix ng-scope']//h2[text()='Tenant Management ']
 	public WebElement LandingDashboard;
 	
@@ -50,17 +57,34 @@ public class SpiceTG_homePage {
 	
 	@FindBy(xpath="//a[@class='dropdown-toggle profileToggle ng-scope']")
 	public WebElement CheckDropDownEnable;
-	
+			
 	@FindBy(xpath="//div[@class='dropdown-menu dropdown-menu-right show']//a[text()='Logout']")
 	public WebElement LogOutApplicaion;
-	
-	
-	//Add method to login
-	public void login(String Uname, String Pwd){
-		Enter_User_Name_Email_id.sendKeys(Uname);
-		Enter_User_Password.sendKeys(Pwd);
-		ClickOn_Login.click();
+		
+	public SpiceTG_LoginPage(){
+		PageFactory.initElements(dr, this); //OR this
 	}
+	
+	//Actions:
+	public String validateSpiceTGHomePageTitle(){
+		return dr.getTitle();
+	}
+	public boolean validateSpiceTGLogo(){
+	
+		return Verify_SpiceTG_Logo.isDisplayed();
+	}
+	//Will redirect to HomePage of Spice TG Application 
+	public SpiceTGHomePage validateUserNamePWD(String Uname,String PWD){
+		
+		Enter_User_Name_Email_id.sendKeys(Uname);
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Enter_User_Password.sendKeys(PWD);
+		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		ClickOn_Login.click();
+		return new SpiceTGHomePage();
+	}
+	
+
 
 
 }

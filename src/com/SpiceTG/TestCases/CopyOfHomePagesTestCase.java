@@ -9,13 +9,13 @@ import org.testng.annotations.DataProvider;
 import com.SpiceTG.Utility.AlertHandel;
 import com.SpiceTG.Utility.ExcelWriteUtility;
 import com.SpiceTG.Utility.SpiceTG_GlobalVariables;
-import com.SpiceTG.pages.SpiceTG_homePage;
+import com.SpiceTG.pages.SpiceTG_LoginPage;
 
 
 public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
-	@Test //To Verify Page Title on the page
-	public void Test1() {
+	@Test (priority=1)//To Verify Page Title on the page
+	public void SpiceTitleTest() {
 
 		System.out.println(dr.getTitle());
 		String PageTitle;
@@ -26,10 +26,10 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 	
 						
 	}
-	@Test  //To Verify Application Logo
-	public void Test2() throws InterruptedException {
+	@Test (priority=2) //To Verify Application Logo
+	public void SpiceLogoTestCase() throws InterruptedException {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Assert.assertEquals(Shp.Verify_SpiceTG_Logo.getAttribute("src"),"https://spicetg.azurewebsites.net/assets/img/cmy_logo.png","Actual img is not expected");
 		String LogoVerification=Shp.Verify_SpiceTG_Logo.getText();
@@ -38,10 +38,10 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 		
 	}
-	@Test //To Login with Valid user and after Login Print Default dashBoard Title
-	public void Test3() {
+	@Test (priority=3) //To Login with Valid user and after Login Print Default dashBoard Title
+	public void SpiceLoingTestCase() {
 		
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		try {
@@ -70,11 +70,11 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		} 
 	}
 	
-	@Test(dataProvider="SpiceTG_UserName_and_Password")
-	public void Test4(String UserName, String Password) {
+	@Test(priority=4,dataProvider="SpiceTG_UserName_and_Password")
+	public void LoginPageTestCase(String UserName, String Password) {
 		
 		System.out.println(UserName+" | "+Password);
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		try {
@@ -108,6 +108,8 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 				
 	}
 	@DataProvider(name="SpiceTG_UserName_and_Password")
+	 //Object [][] data = new Object [rowCount][colCount];
+
 	public Object[][]Userpassdata() throws Exception{
 		
 		ExcelWriteUtility Readwrite=new ExcelWriteUtility();
@@ -129,9 +131,9 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		return UserPass;
 	}
 	
-	@Test(dataProvider="SpiceTGuserpwd")
-	public void Test5(String uname, String pwd) throws Exception  {
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+	@Test(priority=5,dataProvider="SpiceTGuserpwd")
+	public void ForgotPasswordTestCase(String uname, String pwd) throws Exception  {
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		Shp.ForgotPassword.click();
 					
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -182,9 +184,9 @@ public class CopyOfHomePagesTestCase extends SpiceTG_GlobalVariables {
 		
 	}
 	//For ForgotPwd pass from excel file
-	@Test(dataProvider="SpiceTGForgotPwd")
-	public void Test6(String username) throws Exception  {
-		SpiceTG_homePage Shp=PageFactory.initElements(dr, SpiceTG_homePage.class);
+	@Test(priority=6,dataProvider="SpiceTGForgotPwd")
+	public void ForgotpasswordTESt(String username) throws Exception  {
+		SpiceTG_LoginPage Shp=PageFactory.initElements(dr, SpiceTG_LoginPage.class);
 		Shp.ForgotPassword.click();
 					
 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);

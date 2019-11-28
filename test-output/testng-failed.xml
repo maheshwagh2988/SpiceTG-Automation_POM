@@ -6,7 +6,7 @@
       <class name="com.SpiceTG.TestCases.CopyOfHomePagesTestCase">
         <methods>
           <include name="beforeClass"/>
-          <include name="Test4" invocation-numbers="1 2 3"/>
+          <include name="ForgotPasswordTestCase" invocation-numbers="1 2 3"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- com.SpiceTG.TestCases.CopyOfHomePagesTestCase -->

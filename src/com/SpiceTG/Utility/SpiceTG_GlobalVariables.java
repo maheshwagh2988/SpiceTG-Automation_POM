@@ -27,6 +27,8 @@ public class SpiceTG_GlobalVariables {
 	//public static String testDataExcelFileName  = "testdata.xlsx";
 	//public static String wait = null;
 	public static String Filepahts  = "D:\\Automation\\Automation_Project\\SpiceTG-Automation\\src\\com\\SpiceTG\\TestDataFiles\\Testdata_1.xlsx";
+	public static long PAGE_LOAD_TIMEOUT=30; //Time out function return long so take long variable
+	public static long IMPLICIT_WAIT=40;
 		
 	@BeforeMethod
 	public static void beforeClass() throws Exception {
@@ -59,18 +61,15 @@ public class SpiceTG_GlobalVariables {
 		
 		System.setProperty("webdriver.chrome.driver", "D:/Automation/Automation_Project/SpiceTG-Automation/Jar Files/chromedriver_win32_76/chromedriver.exe");
 		dr = new ChromeDriver();
-		
-		
-		dr.get(LoginURL);
 		dr.manage().window().maximize();
-		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		//dr.manage().window().maximize();
- 		dr.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		dr.get(LoginURL);
+		dr.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		dr.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
  		
 
 		if (dr != null) {
 			oDriver = new EventFiringWebDriver(dr);
-			oDriver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			oDriver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
 					
 		  }
 		}
@@ -80,7 +79,7 @@ public class SpiceTG_GlobalVariables {
 	
 	protected static void quit() throws Exception {
 		if (oDriver != null) {
-			oDriver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			oDriver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
 		//	oDriver.quit();
 			oDriver.close();
 			
